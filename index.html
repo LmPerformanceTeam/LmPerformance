@@ -5,7 +5,6 @@
 <meta property="og:title" content="LM Performance — Official Team Dashboard">
 <meta property="og:description" content="F1 · F2 · F3 · F4 | Richard Mille LM Performance | 2026 Season — Driver standings, team roster, pay rates and more.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://cdn.discordapp.com/attachments/1465390532409823252/1504168696602431589/content.png">
 <meta name="theme-color" content="#E8202A">
 <meta property="og:site_name" content="LM Performance">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -414,6 +413,83 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
 
 /* Red line accent animate */
 .hero::before { animation: fadeIn 1s ease 0.3s both; }
+
+/* ════════ MOBILE RESPONSIVE ════════ */
+@media (max-width: 768px) {
+  .wrap { max-width: 100%; padding: 0 0 80px; }
+
+  /* HERO */
+  .hero { padding: 24px 16px 20px; }
+  .hero-title { font-size: 34px; }
+  .hero-sub { font-size: 10px; line-height: 1.6; }
+  .hero-right { margin-top: 12px; }
+  .season-tag { font-size: 24px; }
+
+  /* TAB NAV — horizontal scroll */
+  .tab-nav {
+    padding: 0 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    font-size: 11px;
+    padding: 12px 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 1px;
+  }
+
+  /* SECTIONS */
+  .section { padding: 24px 16px 0; }
+  .sh { margin-bottom: 14px; }
+
+  /* SERIES BLOCK — stack drivers above standings */
+  .series-header { padding: 14px 16px; gap: 10px; }
+  .series-body { grid-template-columns: 1fr; }
+  .series-left { border-right: none; border-bottom: 1px solid var(--border); padding: 16px; }
+  .series-right { padding: 16px; }
+
+  /* DRIVER CARDS — single column for readability */
+  .drivers-grid { grid-template-columns: 1fr; gap: 10px; }
+  .driver-card { min-height: 120px; }
+
+  /* TEAM STANDINGS */
+  .ts-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  /* MANAGEMENT */
+  .mgmt-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  /* SPOTLIGHT */
+  .spotlight { flex-direction: column; align-items: flex-start; padding: 20px 16px; gap: 12px; text-align: left; }
+
+  /* STORE — stack image above info */
+  .store-hero { flex-direction: column; padding: 20px 16px; gap: 20px; }
+  .store-slider { width: 100%; }
+  .store-hero-info { text-align: left; }
+
+  /* ROSTER TABLE — allow horizontal scroll */
+  .roster-wrap, .roster-table { font-size: 11px; }
+  .roster-table th, .roster-table td { padding: 8px 8px; }
+
+  /* CALENDAR */
+  .cal-filter { gap: 6px; }
+
+  /* JOIN BUTTON — compact */
+  .join-team-btn {
+    bottom: 16px; right: 16px;
+    padding: 12px 18px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-title { font-size: 28px; }
+  .tab-btn { font-size: 10px; padding: 11px 10px; }
+  .driver-card { min-height: 110px; }
+}
+
 </style>
 </head>
 <body>
@@ -632,17 +708,17 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
         <div class="standings-label">Driver Lineup</div>
         <div class="drivers-grid">
           <div class="driver-card" style="--dc:#5a5a7a">
-            <div class="driver-number">1</div>
+            <div class="driver-number">88</div>
             <div class="driver-role">Driver 1</div>
-            <div class="driver-name placeholder">TBD</div>
-            <div class="driver-nationality">— Nationality</div>
+            <div class="driver-name">Gordo</div>
+            <div class="driver-nationality">🇵🇱</div>
             <div class="driver-pts"><span class="driver-pts-val" style="color:var(--muted)">—</span><span class="driver-pts-label">pts</span></div>
           </div>
           <div class="driver-card" style="--dc:#5a5a7a">
-            <div class="driver-number">2</div>
+            <div class="driver-number">3</div>
             <div class="driver-role">Driver 2</div>
-            <div class="driver-name placeholder">TBD</div>
-            <div class="driver-nationality">— Nationality</div>
+            <div class="driver-name">Skirmoza</div>
+            <div class="driver-nationality">🇷🇴</div>
             <div class="driver-pts"><span class="driver-pts-val" style="color:var(--muted)">—</span><span class="driver-pts-label">pts</span></div>
           </div>
           <div class="driver-card reserve">
@@ -659,12 +735,12 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
         <table class="std-table">
           <thead><tr><th style="width:28px">P</th><th>Driver</th><th class="r">Pts</th><th class="r">Gap</th></tr></thead>
           <tbody>
-            <tr class="lm-row"><td class="std-pos m1">1</td><td class="std-name">TBD Driver <span class="lm-badge">LM</span></td><td class="std-pts" style="color:var(--gold)">—</td><td class="std-gap">Leader</td></tr>
+            <tr class="lm-row"><td class="std-pos m1">1</td><td class="std-name">🇵🇱 Gordo <span class="lm-badge">LM</span></td><td class="std-pts" style="color:var(--gold)">—</td><td class="std-gap">Leader</td></tr>
             <tr class="placeholder-row"><td class="std-pos">2</td><td>—</td><td class="r">—</td><td class="r">—</td></tr>
             <tr class="placeholder-row"><td class="std-pos">3</td><td>—</td><td class="r">—</td><td class="r">—</td></tr>
             <tr class="placeholder-row"><td class="std-pos">4</td><td>—</td><td class="r">—</td><td class="r">—</td></tr>
             <tr class="placeholder-row"><td class="std-pos">5</td><td>—</td><td class="r">—</td><td class="r">—</td></tr>
-            <tr class="lm-row"><td class="std-pos">—</td><td class="std-name">TBD Driver 2 <span class="lm-badge">LM</span></td><td class="std-pts" style="color:var(--muted)">—</td><td class="std-gap">—</td></tr>
+            <tr class="lm-row"><td class="std-pos">—</td><td class="std-name">🇷🇴 Skirmoza <span class="lm-badge">LM</span></td><td class="std-pts" style="color:var(--muted)">—</td><td class="std-gap">—</td></tr>
           </tbody>
         </table>
       </div>
@@ -766,7 +842,7 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
       <div class="ti-card"><div class="ti-label">Team Name</div><div class="ti-val" style="font-size:16px">LM Performance</div><div class="ti-sub">Richard Mille LM Performance</div></div>
       <div class="ti-card"><div class="ti-label">Founded</div><div class="ti-val">2026</div><div class="ti-sub">Inaugural season</div></div>
       <div class="ti-card"><div class="ti-label">Series Active</div><div class="ti-val">4</div><div class="ti-sub">F1 · F2 · F3 · F4</div></div>
-      <div class="ti-card"><div class="ti-label">Confirmed Drivers</div><div class="ti-val">6</div><div class="ti-sub">6 slots still open</div></div>
+      <div class="ti-card"><div class="ti-label">Confirmed Drivers</div><div class="ti-val">8</div><div class="ti-sub">4 slots still open</div></div>
       <div class="ti-card"><div class="ti-label">Recruitment</div><div class="ti-val" style="color:var(--green);font-size:16px">● Open</div><div class="ti-sub">All series accepting</div></div>
       <div class="ti-card"><div class="ti-label">Management</div><div class="ti-val">2</div><div class="ti-sub">Mikos CEO · Lowie Director</div></div>
     </div>
@@ -811,8 +887,8 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
           <div class="ts-series" style="color:#aaa"><span style="color:#6a6a9a">F</span>4 Constructor</div>
           </div>
         <div class="ts-body">
-          <div class="ts-stat-row"><span class="ts-stat-label">TBD Driver 1</span><span class="ts-stat-val" style="color:var(--muted)">— pts</span></div>
-          <div class="ts-stat-row"><span class="ts-stat-label">TBD Driver 2</span><span class="ts-stat-val" style="color:var(--muted)">— pts</span></div>
+          <div class="ts-stat-row"><span class="ts-stat-label">🇵🇱 Gordo</span><span class="ts-stat-val" style="color:var(--muted)">— pts</span></div>
+          <div class="ts-stat-row"><span class="ts-stat-label">🇷🇴 Skirmoza</span><span class="ts-stat-val" style="color:var(--muted)">— pts</span></div>
           <div class="ts-stat-row" style="margin-top:8px"><span class="ts-stat-label" style="font-weight:700;color:#fff">Team Total</span><span class="ts-stat-val" style="color:var(--muted);font-size:26px">—</span></div>
           <div class="ts-stat-row"><span class="ts-stat-label">Constructor Position</span><span class="ts-stat-val" style="color:var(--muted)">P —</span></div>
         </div>
@@ -837,7 +913,7 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
           <tr>
             <td><strong>Douzy</strong></td>
             <td><span class="series-pill pill-f1">F1</span></td>
-            <td><span class="role-main">Main Driver</span></td>
+            <td><span class="role-main">Second Driver</span></td>
             <td>🇧🇪</td><td>99</td>
             <td class="r"><span style="color:var(--green);font-size:11px;font-weight:600">● Active</span></td>
           </tr>
@@ -858,7 +934,7 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
           <tr>
             <td><strong>Gamrin</strong></td>
             <td><span class="series-pill pill-f2">F2</span></td>
-            <td><span class="role-main">Main Driver</span></td>
+            <td><span class="role-main">Second Driver</span></td>
             <td>🇨🇿</td><td>23</td>
             <td class="r"><span style="color:var(--green);font-size:11px;font-weight:600">● Active</span></td>
           </tr>
@@ -879,7 +955,7 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
           <tr>
             <td><strong>Piko</strong></td>
             <td><span class="series-pill pill-f3">F3</span></td>
-            <td><span class="role-main">Main Driver</span></td>
+            <td><span class="role-main">Second Driver</span></td>
             <td>🇪🇸</td><td>53</td>
             <td class="r"><span style="color:var(--green);font-size:11px;font-weight:600">● Active</span></td>
           </tr>
@@ -891,18 +967,18 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
             <td class="r"><span style="color:var(--dim);font-size:11px">○ Open</span></td>
           </tr>
           <tr>
-            <td><strong style="color:var(--dim)">TBD</strong></td>
+            <td><strong>Gordo</strong></td>
             <td><span class="series-pill pill-f4">F4</span></td>
             <td><span class="role-main">Main Driver</span></td>
-            <td>—</td><td>—</td>
-            <td class="r"><span style="color:var(--dim);font-size:11px">○ Open</span></td>
+            <td>🇵🇱</td><td>88</td>
+            <td class="r"><span style="color:var(--green);font-size:11px;font-weight:600">● Active</span></td>
           </tr>
           <tr>
-            <td><strong style="color:var(--dim)">TBD</strong></td>
+            <td><strong>Skirmoza</strong></td>
             <td><span class="series-pill pill-f4">F4</span></td>
-            <td><span class="role-main">Main Driver</span></td>
-            <td>—</td><td>—</td>
-            <td class="r"><span style="color:var(--dim);font-size:11px">○ Open</span></td>
+            <td><span class="role-main">Second Driver</span></td>
+            <td>🇷🇴</td><td>3</td>
+            <td class="r"><span style="color:var(--green);font-size:11px;font-weight:600">● Active</span></td>
           </tr>
           <tr>
             <td><strong style="color:var(--dim)">TBD</strong></td>
@@ -1086,11 +1162,6 @@ body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(
 </div>
 
 <script>
-function toggleAcc(btn) {
-  btn.classList.toggle('open');
-  btn.nextElementSibling.classList.toggle('open');
-}
-
 function switchCal(series) {
   document.querySelectorAll('.cal-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.cal-series').forEach(s => s.classList.remove('active'));
@@ -1102,6 +1173,7 @@ function switchTab(tabId) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
   document.querySelector('[data-tab="'+tabId+'"]').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
   document.getElementById(tabId).classList.add('active');
 }
 </script>
