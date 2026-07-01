@@ -336,6 +336,37 @@ body.menu-open{overflow:hidden}
   100%{opacity:0}
 }
 
+/* ── STORE ── */
+.store-wrap{display:grid;grid-template-columns:540px 1fr;margin-top:6px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card)}
+.store-media{position:relative;background:radial-gradient(circle at 50% 38%,#17141a,#0b0b0e 72%);min-height:620px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-right:1px solid var(--border)}
+.store-media::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(232,32,42,.045) 0 14px,transparent 14px 28px);pointer-events:none}
+.store-media img{position:relative;width:100%;height:100%;min-height:620px;object-fit:cover;object-position:center 42%;opacity:0;transform:scale(1.02);transition:opacity .4s ease,transform .5s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.store-media img.show{opacity:1;transform:scale(1);pointer-events:auto}
+.store-media img:not(.show){position:absolute;inset:0}
+.store-arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid var(--border);background:rgba(16,16,20,.85);backdrop-filter:blur(6px);color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;z-index:3}
+.store-arrow:hover{background:var(--red);border-color:var(--red)}
+.store-arrow.prev{left:18px}
+.store-arrow.next{right:18px}
+.store-viewtag{position:absolute;top:20px;left:20px;z-index:3;font-family:"Roboto Mono",monospace;font-size:10px;letter-spacing:2px;color:#fff;text-transform:uppercase;background:var(--red);padding:6px 12px;border-radius:3px}
+.store-dots{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.store-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);cursor:pointer;transition:.25s}
+.store-dot.active{background:var(--red);width:24px;border-radius:4px}
+.store-info{padding:62px 58px;display:flex;flex-direction:column;justify-content:center}
+.store-info .s-eyebrow{font-family:"Roboto Mono",monospace;font-size:11px;letter-spacing:4px;color:var(--red);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.store-info .s-eyebrow::before{content:"";width:28px;height:1px;background:var(--red)}
+.store-info .s-name{font-family:"Barlow Condensed",sans-serif;font-weight:900;font-size:clamp(40px,4.6vw,64px);line-height:.86;text-transform:uppercase;letter-spacing:-1.5px;color:#fff}
+.store-info .s-name span{color:var(--red)}
+.store-info .s-collab{font-family:"Roboto Mono",monospace;font-size:12px;letter-spacing:1px;color:var(--muted);margin-top:16px}
+.store-info .s-tag{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-style:italic;font-size:22px;color:#fff;margin-top:20px}
+.store-info .s-tag span{color:var(--red)}
+.store-info .s-desc{font-size:15px;color:#bcbcc8;line-height:1.7;margin-top:18px;max-width:460px}
+.store-info .s-cta{display:inline-flex;align-items:center;gap:12px;margin-top:30px;background:var(--red);color:#fff;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;padding:15px 28px;border-radius:4px;width:fit-content;transition:.2s}
+.store-info .s-cta:hover{background:#fff;color:#0a0a0c;gap:18px}
+.store-info .s-meta{display:flex;gap:26px;margin-top:28px;flex-wrap:wrap}
+.store-info .s-meta .m{font-family:"Roboto Mono",monospace;font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+.store-info .s-meta .m span{display:block;color:#fff;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:15px;letter-spacing:.5px;margin-top:5px}
+@media(max-width:900px){.store-wrap{grid-template-columns:1fr}.store-media{min-height:auto;border-right:0;border-bottom:1px solid var(--border)}.store-media img{height:440px}.store-media img:not(.show){position:absolute}.store-info{padding:38px 30px}}
+
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -394,6 +425,7 @@ body.menu-open{overflow:hidden}
   <a class="menu-toggle" data-open="cars">The Fleet</a>
   <a class="menu-toggle" data-open="events">Schedule</a>
   <a class="menu-toggle" data-open="mgmt">Management</a>
+  <a href="#" onclick="showView('store');return false">Store</a>
 </nav>
 
 <!-- MEGA MENU -->
@@ -627,6 +659,7 @@ body.menu-open{overflow:hidden}
     <div class="foot-col">
       <h4>Team</h4>
       <a href="#" onclick="showView('mgmt');return false">Management</a>
+      <a href="#" onclick="showView('store');return false">Store</a>
       <a href="#partners">Partners</a>
       <a href="#news">Journal</a>
     </div>
@@ -811,6 +844,54 @@ body.menu-open{overflow:hidden}
   </div>
 </div>
 
+<!-- STORE VIEW -->
+<div id="view-store" class="view sview">
+  <header class="shero">
+    <span class="watermark">LM</span>
+    <div class="shero-inner">
+      <div class="label">The Outfit · Off Track</div>
+      <h1>The <span>Store</span></h1>
+      <p class="sdesc">Official LM Performance merchandise — the same kit the team wears on the grid. Built in the Richard Mille livery language and available exclusively on Roblox.</p>
+      <div class="sstats">
+        <div class="stat"><div class="v">1</div><div class="l">Drop Live</div></div>
+        <div class="stat"><div class="v">×</div><div class="l">Mackage</div></div>
+        <div class="stat"><div class="v">'26</div><div class="l">Season</div></div>
+      </div>
+    </div>
+  </header>
+  <div class="sbody">
+    <div class="eyebrow">Official Merchandise</div>
+    <h2 class="sec-title">Latest Drop</h2>
+    <div class="store-wrap">
+      <div class="store-media" id="storeMedia">
+        <span class="store-viewtag" id="storeViewTag">Front</span>
+        <img src="store_zipup_front.jpg" alt="LM Performance Zip-Up — front" class="show">
+        <img src="store_zipup_back.jpg" alt="LM Performance Zip-Up — back">
+        <button class="store-arrow prev" onclick="storeSlide(-1)" aria-label="Previous">&lsaquo;</button>
+        <button class="store-arrow next" onclick="storeSlide(1)" aria-label="Next">&rsaquo;</button>
+        <div class="store-dots">
+          <div class="store-dot active" onclick="storeGo(0)"></div>
+          <div class="store-dot" onclick="storeGo(1)"></div>
+        </div>
+      </div>
+      <div class="store-info">
+        <div class="s-eyebrow">Roblox Exclusive</div>
+        <div class="s-name"><span>LM</span> Performance<br>Zip-Up</div>
+        <div class="s-collab">LM Performance × Mackage · 2026</div>
+        <div class="s-tag">"<span>Dressed</span> To Dominate"</div>
+        <p class="s-desc">The official LM Performance × Mackage zip-up jacket. Worn by the team, built for the track — carrying the full Richard Mille identity across the back. Available exclusively on Roblox.</p>
+        <a class="s-cta" href="https://www.roblox.com/catalog/78622387232095/LM-Performance-Zip-up" target="_blank" rel="noopener">Get it on Roblox <span>&rarr;</span></a>
+        <div class="s-meta">
+          <div class="m">Collab<span>LM × Mackage</span></div>
+          <div class="m">Platform<span>Roblox</span></div>
+          <div class="m">Season<span>2026</span></div>
+        </div>
+      </div>
+    </div>
+    <a href="#" onclick="showView('home');return false" style="display:inline-flex;align-items:center;gap:10px;margin-top:48px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:#fff">&larr; Back to home</a>
+  </div>
+</div>
+
 <!-- DISCORD FAB -->
 <a class="discord-fab" href="https://discord.gg/ypAR4REV6" target="_blank" rel="noopener" aria-label="Join Discord">
   <svg width="20" height="15" viewBox="0 0 71 55" fill="currentColor"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.5.4a.2.2 0 0 0-.2.1c-.6 1.1-1.3 2.6-1.8 3.7a54 54 0 0 0-16.2 0c-.5-1.2-1.2-2.6-1.9-3.7a.2.2 0 0 0-.2-.1 58.4 58.4 0 0 0-14.6 4.5.2.2 0 0 0-.1.1C1.6 18.7-1 32.1.3 45.4a.2.2 0 0 0 .1.2 58.9 58.9 0 0 0 17.7 8.9.2.2 0 0 0 .2-.1c1.4-1.9 2.6-3.9 3.6-6a.2.2 0 0 0-.1-.3 38.8 38.8 0 0 1-5.5-2.6.2.2 0 0 1 0-.4l1.1-.8a.2.2 0 0 1 .2 0 42 42 0 0 0 35.6 0 .2.2 0 0 1 .2 0l1.1.8a.2.2 0 0 1 0 .4 36.4 36.4 0 0 1-5.5 2.6.2.2 0 0 0-.1.3c1 2.1 2.3 4.1 3.6 6a.2.2 0 0 0 .2.1 58.7 58.7 0 0 0 17.7-8.9.2.2 0 0 0 .1-.2c1.5-15.3-2.6-28.6-10.9-40.4a.2.2 0 0 0-.1-.1ZM23.7 37.3c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.6 0 6.5 3.3 6.4 7.2 0 4-2.8 7.2-6.4 7.2Zm23.6 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.6 0 6.5 3.3 6.4 7.2 0 4-2.8 7.2-6.4 7.2Z"/></svg>
@@ -976,6 +1057,20 @@ function closeDriver(){dmodal.classList.remove('open');document.body.classList.r
 document.querySelectorAll('.dcard[data-driver]').forEach(c=>c.addEventListener('click',()=>openDriver(c.dataset.driver)));
 dmodal.querySelectorAll('[data-dclose]').forEach(c=>c.addEventListener('click',closeDriver));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDriver()});
+
+// ── STORE SLIDER ──
+let storeIdx=0;
+const storeImgs=[...document.querySelectorAll('#storeMedia img')];
+const storeDots=[...document.querySelectorAll('#storeMedia .store-dot')];
+const storeTag=document.getElementById('storeViewTag');
+const storeLabels=['Front','Back'];
+function storeGo(i){
+  storeIdx=(i+storeImgs.length)%storeImgs.length;
+  storeImgs.forEach((im,n)=>im.classList.toggle('show',n===storeIdx));
+  storeDots.forEach((d,n)=>d.classList.toggle('active',n===storeIdx));
+  if(storeTag)storeTag.textContent=storeLabels[storeIdx];
+}
+function storeSlide(dir){storeGo(storeIdx+dir);}
 
 // Scroll reveal
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
