@@ -2085,26 +2085,26 @@ const DRIVERS={
     season:{champ:"—",points:0,wins:0,podiums:0,poles:0,fl:0,best:"—",starts:0},
     career:{champs:0,points:0,wins:0,podiums:0,poles:0,starts:0}},
   jamie:{name:"Jamie",no:"4",nat:"—",series:"Formula 1",role:"Race Driver",
-    season:{champ:"P2",points:133,wins:1,podiums:5,poles:1,fl:2,best:"P1",starts:7},
-    career:{champs:0,points:133,wins:1,podiums:5,poles:1,starts:7}},
+    season:{champ:"P2",points:133,wins:1,podiums:6,poles:2,fl:2,best:"P1",starts:8},
+    career:{champs:0,points:133,wins:1,podiums:6,poles:2,starts:8}},
   lory:{name:"Lory",no:"1",nat:"Italy",series:"Formula 1",role:"Race Driver",
-    season:{champ:"P3",points:104,wins:0,podiums:4,poles:0,fl:0,best:"P2",starts:9},
-    career:{champs:1,points:321,wins:3,podiums:12,poles:5,starts:22}},
+    season:{champ:"P3",points:104,wins:0,podiums:4,poles:0,fl:0,best:"P2",starts:10},
+    career:{champs:1,points:321,wins:3,podiums:12,poles:5,starts:23}},
   skirmoza:{name:"Skirmoza",no:"3",nat:"Romania",series:"Formula 2",role:"Race Driver",
-    season:{champ:"P1",points:155,wins:2,podiums:6,poles:2,fl:2,best:"P1",starts:8},
-    career:{champs:0,points:155,wins:2,podiums:6,poles:2,starts:8}},
+    season:{champ:"P1",points:155,wins:2,podiums:8,poles:2,fl:2,best:"P1",starts:9},
+    career:{champs:0,dnfExcl:1,points:155,wins:2,podiums:8,poles:2,starts:9}},
   peters:{name:"Peters",no:"23",nat:"—",series:"Formula 2",role:"Race Driver",
-    season:{champ:"P8",points:38,wins:0,podiums:1,poles:0,fl:0,best:"P3",starts:3},
-    career:{champs:0,points:38,wins:0,podiums:1,poles:0,starts:3}},
+    season:{champ:"P8",points:38,wins:0,podiums:2,poles:0,fl:0,best:"P3",starts:3},
+    career:{champs:0,points:38,wins:0,podiums:2,poles:0,starts:3}},
   jeffz:{name:"Jeffz",no:"99",nat:"—",series:"Formula 3",role:"Race Driver",
-    season:{champ:"P2",points:126,wins:1,podiums:3,poles:1,fl:0,best:"P1",starts:4},
-    career:{champs:0,points:126,wins:1,podiums:3,poles:1,starts:4}},
+    season:{champ:"P2",points:149,wins:3,podiums:5,poles:2,fl:1,best:"P1",starts:6},
+    career:{champs:0,points:149,wins:3,podiums:5,poles:2,starts:6}},
   piko:{name:"Piko",no:"53",nat:"Spain",series:"Formula 3",role:"Race Driver",
-    season:{champ:"P1",points:195,wins:1,podiums:6,poles:3,fl:0,best:"P1",starts:6},
-    career:{champs:0,points:195,wins:1,podiums:6,poles:3,fl:0,starts:6}},
+    season:{champ:"P1",points:207,wins:2,podiums:9,poles:5,fl:4,best:"P1",starts:10},
+    career:{champs:0,points:207,wins:2,podiums:9,poles:5,fl:4,starts:10}},
   jardin:{name:"Jardin",no:"7",nat:"—",series:"Formula 3",role:"Race Driver",
-    season:{champ:"P20",points:12,wins:0,podiums:0,poles:0,fl:0,best:"P7",starts:2},
-    career:{champs:0,points:12,wins:0,podiums:0,poles:0,starts:2}},
+    season:{champ:"P20",points:18,wins:0,podiums:0,poles:0,fl:0,best:"P7",starts:3},
+    career:{champs:0,points:18,wins:0,podiums:0,poles:0,starts:3}},
   neon:{name:"Neon",no:"—",nat:"—",series:"LMP2",role:"Race Driver",
     season:{champ:"P3",points:0,wins:0,podiums:0,poles:0,fl:0,best:"—",starts:0},
     career:{champs:0,points:0,wins:0,podiums:0,poles:0,starts:0}},
@@ -2128,7 +2128,7 @@ function openDriver(key){
     `</div></div>`+
     `<div class="dmblock"><div class="dmbtitle">Career</div><div class="dmgrid">`+
       cell(c.champs,'Titles','hi')+cell(c.starts,'Starts')+cell(c.wins,'Wins')+
-      cell(c.podiums,'Podiums')+cell(c.poles,'Poles')+cell(pct(c.wins,c.starts),'Win %','hi')+cell(pct(c.podiums,c.starts),'Podium %','hi')+
+      cell(c.podiums,'Podiums')+cell(c.poles,'Poles')+cell(pct(c.wins,c.starts),'Win %','hi')+cell(pct(c.podiums,c.starts-(c.dnfExcl||0)),'Podium %','hi')+
     `</div></div>`;
   dmodal.classList.add('open');
   document.body.classList.add('menu-open');
